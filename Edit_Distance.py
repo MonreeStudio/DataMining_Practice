@@ -1,7 +1,6 @@
 import Levenshtein
 import numpy as np
 import time
-import string
 import matplotlib.pyplot as plt
 import matplotlib
 import seaborn as sns
@@ -30,7 +29,7 @@ def total_edit_distance(a: str, b: str) -> float:
 
 
 #数据可视化：生成二维数组的热力图
-def heatmap(s: []) -> float:
+def heatmap(s: [])
     ax = sns.heatmap(s, annot=True, fmt='.2f', linewidths=.5, square=True, cmap='YlGnBu')
     label_y = ax.get_yticklabels()
     plt.setp(label_y, rotation=360, horizontalalignment='right')
