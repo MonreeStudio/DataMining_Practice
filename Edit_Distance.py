@@ -7,7 +7,7 @@ import seaborn as sns
 
 
 #进行文本文件的空格补偿
-def pad_list(text_list: list, size: int) -> int:
+def pad_list(text_list: list, size: int) -> list:
     for i in range(len(text_list),size):
         text_list.append(' ')
     return text_list
@@ -24,7 +24,7 @@ def average_edit_distance(a: str, b: str) -> float:
 
 
 #计算文本文件整体的编辑距离
-def total_edit_distance(a: str, b: str) -> float:
+def total_edit_distance(a: str, b: str) -> int:
     return Levenshtein.distance(a,b)
 
 
