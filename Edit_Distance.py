@@ -6,20 +6,14 @@ import matplotlib
 import seaborn as sns
 
 
-#进行文本文件的空格补偿
-def pad_list(text_list: list, size: int) -> list:
-    for i in range(len(text_list),size):
-        text_list.append(' ')
-    return text_list
-
 #计算文本文件每个单词对的编辑距离的均值
-def average_edit_distance(a: str, b: str) -> float:
+def real_eidt_distance(a: str, b: str) -> float:
     a_list, b_list = a.split(' '), b.split(' ')
-    text_size = max(len(a), len(b))
-    a_list, b_list = pad_list(a_list, text_size), pad_list(b_list, text_size)
-    s = np.zeros(text_size)
-    for i in range(text_size):
-        s[i] = Levenshtein.distance(a_list[i], b_list[i])
+    s_size = len(a_list) * len(b_list)
+    s = np.zeros(s_size)
+    for i in range(len(a_list)):
+        for j in range(len(b_list)):
+            s[i*len(b_list)+j] = Levenshtein.distance(a_list[i], b_list[j])
     return np.average(s)
 
 
